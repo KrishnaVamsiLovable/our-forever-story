@@ -27,20 +27,22 @@ const OurStory = () => {
         
         <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
           <p>
-            It all began on a rainy afternoon in a small bookshop downtown. Emma was reaching for her 
-            favorite poetry collection when James accidentally bumped into her, sending books 
-            tumbling everywhere. What started with apologies and laughter turned into coffee, 
-            then dinner, and before we knew it—a lifetime of adventures together.
+            Our story began with something beautifully unplanned—an impromptu trip that neither of us 
+            expected. We didn't know then that one single, spontaneous decision would lead us 
+            to the love of our lives. But fate has a way of writing the most extraordinary chapters 
+            when we least expect it.
           </p>
           
           <p>
-            Three years, countless sunsets, and one perfect proposal later, we're ready to begin 
-            the greatest chapter of our story. We've traveled through mountains and across oceans, 
-            but the journey that matters most is the one we take together, hand in hand.
+            What happened since that moment has been nothing short of the most beautiful part of 
+            our lives. We became inseparable—wanting to spend every moment together, eager to 
+            share every experience, every laugh, every dream. We are partners in everything, 
+            and somewhere along the way, we realized this is exactly how we want to live 
+            the rest of our lives.
           </p>
           
           <p className="font-script text-2xl text-sage pt-4">
-            And now, we invite you to celebrate this beautiful beginning with us.
+            Together, always. And now, we invite you to celebrate this beautiful forever with us.
           </p>
         </div>
       </motion.div>

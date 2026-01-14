@@ -20,7 +20,7 @@ const Footer = () => {
         <p className="font-script text-2xl text-foreground mb-2">Leela & Krishna</p>
         
         <p className="text-muted-foreground text-sm tracking-wide">
-          September 15, 2025
+          March 29, 2026
         </p>
         
         <p className="text-muted-foreground/60 text-xs mt-8">

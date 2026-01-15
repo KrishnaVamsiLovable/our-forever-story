@@ -26,9 +26,9 @@ const OurStory = () => {
         <div className="w-16 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-10" />
         
         <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
-          <p>Our story began the way the most beautiful ones often do—unexpectedly. An impromptu trip, a spontaneous choice, a moment neither of us planned, yet one that changed everything. We didn’t know then that it would lead us to the love of our lives, but fate had already begun writing our story.</p>
+          <p>Our story began the way the most beautiful ones often do, unexpectedly. An impromptu trip, a spontaneous choice, a moment neither of us planned, yet one that changed everything. We didn’t know then that it would lead us to the love of our lives, but fate had already begun writing our story.</p>
           
-          <p>What followed became the most beautiful chapter we’ve ever known—filled with shared laughter, quiet moments, and dreams spoken out loud. We found ourselves wanting to be together in every moment, and somewhere along the way, we realized this was exactly how we wanted to walk through life.</p>
+          <p>What followed became the most beautiful chapter we’ve ever known, filled with shared laughter, quiet moments, and dreams spoken out loud. We found ourselves wanting to be together in every moment, and somewhere along the way, we realized this was exactly how we wanted to walk through life.</p>
           
           <p className="font-script text-2xl text-sage pt-4">
             And now, we invite you to celebrate this beautiful beginning with us.

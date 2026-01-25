@@ -7,34 +7,34 @@ import { Button } from "@/components/ui/button";
 
 const questions = [
   {
+    question: "How many times did Krishna had to ask Leela for the first date?",
+    options: ["Once", "Twice", "Thrice"],
+    answer: "Thrice",
+    funReveal: "A woman who knows her worth! 💁‍♀️"
+  },
+  {
     question: "Who said 'I love you' first?",
     options: ["Leela", "Krishna"],
+    answer: "Leela",
+    funReveal: "Plot twist! Guess who fell first 😅❤️"
+  },
+  {
+    question: "Who overthinks more?",
+    options: ["Krishna", "Leela"],
     answer: "Krishna",
-    funReveal: "Krishna couldn't hold it in any longer! 💕"
+    funReveal: "Yes. Even this question 😅🧠"
   },
   {
-    question: "Who is the better cook?",
-    options: ["Leela", "Krishna"],
+    question: "Who is more likely to say 'let's order biryani'?",
+    options: ["Krishna", "Leela"],
     answer: "Leela",
-    funReveal: "Leela rules the kitchen! 👨‍🍳"
-  },
-  {
-    question: "Who takes longer to get ready?",
-    options: ["Leela", "Krishna"],
-    answer: "Leela",
-    funReveal: "But the wait is always worth it! ✨"
+    funReveal: "Life is short. Order Biryani 🍰😋"
   },
   {
     question: "Who is more likely to cry at the wedding?",
     options: ["Leela", "Krishna", "Both"],
     answer: "Both",
     funReveal: "Tissues ready for everyone! 😭💕"
-  },
-  {
-    question: "Who planned the first date?",
-    options: ["Leela", "Krishna"],
-    answer: "Krishna",
-    funReveal: "Krishna had it all figured out! 🌹"
   }
 ];
 

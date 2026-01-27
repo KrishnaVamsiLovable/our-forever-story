@@ -10,7 +10,7 @@ const questions = [
     question: "How many times did Krishna had to ask Leela for the first date?",
     options: ["Once", "Twice", "Thrice"],
     answer: "Thrice",
-    funReveal: "A woman who knows her worth! 💁‍♀️"
+    funReveal: "Somehow, he already knew she's worth it! ❤️"
   },
   {
     question: "Who said 'I love you' first?",
@@ -19,16 +19,16 @@ const questions = [
     funReveal: "Plot twist! Guess who fell first 😅❤️"
   },
   {
-    question: "Who overthinks more?",
+    question: "Who sends longer texts?",
     options: ["Krishna", "Leela"],
     answer: "Krishna",
-    funReveal: "Yes. Even this question 😅🧠"
+    funReveal: "Paragraphs. With context. Always 📱✨"
   },
   {
-    question: "Who is more likely to say 'let's order biryani'?",
+    question: "Who plans everything?",
     options: ["Krishna", "Leela"],
     answer: "Leela",
-    funReveal: "Life is short. Order Biryani 🍰😋"
+    funReveal: "Because someone has to keep things together 📋👀"
   },
   {
     question: "Who is more likely to cry at the wedding?",

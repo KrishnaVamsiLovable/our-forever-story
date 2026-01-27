@@ -6,8 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Heart, Send } from "lucide-react";
+
+const eventOptions = [
+  { id: "wedding", label: "Wedding Ceremony - March 29th, 2026" },
+  { id: "reception", label: "Reception - April 1st, 2026" },
+];
 
 const RSVPSection = () => {
   const headerRef = useRef(null);
@@ -19,6 +25,7 @@ const RSVPSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     numGuests: "",
+    events: [] as string[],
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,6 +49,14 @@ const RSVPSection = () => {
       return;
     }
 
+    if (formData.events.length === 0) {
+      toast({
+        title: "Please select at least one event",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulate submission
@@ -52,8 +67,17 @@ const RSVPSection = () => {
       description: "We can't wait to celebrate with you.",
     });
 
-    setFormData({ name: "", numGuests: "", message: "" });
+    setFormData({ name: "", numGuests: "", events: [], message: "" });
     setIsSubmitting(false);
+  };
+
+  const handleEventToggle = (eventId: string, checked: boolean) => {
+    setFormData((prev) => ({
+      ...prev,
+      events: checked
+        ? [...prev.events, eventId]
+        : prev.events.filter((id) => id !== eventId),
+    }));
   };
 
   return (
@@ -122,6 +146,32 @@ const RSVPSection = () => {
                   }
                   className="border-sage-light/50 focus:border-sage"
                 />
+              </div>
+
+              <div className="space-y-3">
+                <Label className="text-foreground font-medium">
+                  Which events will you attend?
+                </Label>
+                <div className="space-y-3">
+                  {eventOptions.map((event) => (
+                    <div key={event.id} className="flex items-center space-x-3">
+                      <Checkbox
+                        id={event.id}
+                        checked={formData.events.includes(event.id)}
+                        onCheckedChange={(checked) =>
+                          handleEventToggle(event.id, checked as boolean)
+                        }
+                        className="border-sage-light/50 data-[state=checked]:bg-sage data-[state=checked]:border-sage"
+                      />
+                      <Label
+                        htmlFor={event.id}
+                        className="text-foreground font-normal cursor-pointer"
+                      >
+                        {event.label}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-2">

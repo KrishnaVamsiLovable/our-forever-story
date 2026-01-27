@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Heart, Send } from "lucide-react";
 
@@ -152,25 +152,25 @@ const RSVPSection = () => {
                 <Label className="text-foreground font-medium">
                   Which events will you attend?
                 </Label>
-                <div className="space-y-3">
-                  {eventOptions.map((event) => (
-                    <div key={event.id} className="flex items-center space-x-3">
-                      <Checkbox
-                        id={event.id}
-                        checked={formData.events.includes(event.id)}
-                        onCheckedChange={(checked) =>
-                          handleEventToggle(event.id, checked as boolean)
-                        }
-                        className="border-sage-light/50 data-[state=checked]:bg-sage data-[state=checked]:border-sage"
-                      />
-                      <Label
-                        htmlFor={event.id}
-                        className="text-foreground font-normal cursor-pointer"
+                <div className="flex flex-wrap gap-3">
+                  {eventOptions.map((event) => {
+                    const isSelected = formData.events.includes(event.id);
+                    return (
+                      <button
+                        key={event.id}
+                        type="button"
+                        onClick={() => handleEventToggle(event.id, !isSelected)}
+                        className={cn(
+                          "px-5 py-3 rounded-lg border-2 text-sm font-medium transition-all duration-200",
+                          isSelected
+                            ? "bg-sage text-white border-sage"
+                            : "bg-background text-foreground border-sage-light/50 hover:border-sage/50"
+                        )}
                       >
                         {event.label}
-                      </Label>
-                    </div>
-                  ))}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 

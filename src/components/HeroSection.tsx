@@ -22,7 +22,7 @@ const HeroSection = () => {
           </span>
         </motion.div>
         
-        <motion.h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mt-4 mb-6 tracking-tight" initial={{
+        <motion.h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mt-4 mb-6 tracking-tight md:whitespace-nowrap" initial={{
         opacity: 0,
         y: 30
       }} animate={{
@@ -32,8 +32,8 @@ const HeroSection = () => {
         duration: 1,
         delay: 0.5
       }}>
-          <span className="text-foreground">Leela</span>
-          <motion.span className="inline-block mx-4 md:mx-6" initial={{
+          <span className="block md:inline text-foreground">Leela</span>
+          <motion.span className="block md:inline-block my-2 md:my-0 md:mx-6" initial={{
           scale: 0
         }} animate={{
           scale: 1
@@ -44,7 +44,7 @@ const HeroSection = () => {
         }}>
             <Heart className="inline w-8 h-8 md:w-12 md:h-12 text-rose fill-rose/30" />
           </motion.span>
-          <span className="text-foreground">Krishna</span>
+          <span className="block md:inline text-foreground">Krishna</span>
         </motion.h1>
         
         <motion.div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" initial={{

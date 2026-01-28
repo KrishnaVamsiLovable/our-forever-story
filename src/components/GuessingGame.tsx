@@ -32,7 +32,7 @@ const questions = [
   },
   {
     question: "Who is more likely to cry at the wedding?",
-    options: ["Leela", "Krishna", "Both"],
+    options: ["Leela", "Krishna"],
     answer: "Both",
     funReveal: "Tissues ready for everyone! 😭💕"
   }

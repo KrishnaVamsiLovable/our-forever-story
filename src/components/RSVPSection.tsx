@@ -41,34 +41,53 @@ const RSVPSection = () => {
       return;
     }
 
-    if (!formData.numGuests || parseInt(formData.numGuests) < 1) {
-      toast({
-        title: "Please enter number of guests",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (formData.events.length === 0) {
-      toast({
-        title: "Please select at least one event",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
 
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbziCO7B3rhvUL7SvRluCsTbuye88TMM_29yPuQsAR_wSosS-LqLLXhaHWpcAM7CXmx2-A/exec";
 
-    toast({
-      title: "Thank you for your RSVP!",
-      description: "We can't wait to celebrate with you.",
-    });
+      const attendingWedding = formData.events.includes("wedding") ? "Yes" : "No";
+      const attendingReception = formData.events.includes("reception") ? "Yes" : "No";
 
-    setFormData({ name: "", numGuests: "", events: [], message: "" });
-    setIsSubmitting(false);
+      const payload = {
+        name: formData.name.trim(),
+        guests: formData.numGuests,
+        attendingWedding: attendingWedding,
+        attendingReception: attendingReception,
+        message: formData.message.trim(),
+      };
+
+      const formDataToSend = new URLSearchParams();
+      formDataToSend.append("name", payload.name);
+      formDataToSend.append("guests", payload.guests);
+      formDataToSend.append("attendingWedding", payload.attendingWedding);
+      formDataToSend.append("attendingReception", payload.attendingReception);
+      formDataToSend.append("message", payload.message);
+
+      await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: formDataToSend,
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      toast({
+        title: "Thank you for your RSVP!",
+        description: "We can't wait to celebrate with you.",
+      });
+
+      // Reset form
+      setFormData({ name: "", numGuests: "", events: [], message: "" });
+    } catch (error) {
+      toast({
+        title: "Failed to submit RSVP",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleEventToggle = (eventId: string, checked: boolean) => {
@@ -138,7 +157,6 @@ const RSVPSection = () => {
                   id="numGuests"
                   type="number"
                   min="1"
-                  max="10"
                   placeholder="How many guests will be attending?"
                   value={formData.numGuests}
                   onChange={(e) =>

@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Heart, Send } from "lucide-react";
 
 const eventOptions = [
-  { id: "wedding", label: "Wedding Ceremony - March 29th, 2026" },
+  { id: "wedding", label: "Wedding - March 29th, 2026" },
   { id: "reception", label: "Reception - April 1st, 2026" },
 ];
 
@@ -100,7 +100,7 @@ const RSVPSection = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-sage-light/20">
+    <section className="py-20 md:py-28 px-6 bg-sage-light/20">
       <motion.div
         ref={headerRef}
         className="max-w-3xl mx-auto text-center mb-12 md:mb-16"

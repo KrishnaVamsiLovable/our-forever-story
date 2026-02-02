@@ -85,7 +85,7 @@ const EventSchedule = () => {
     once: true,
     margin: "-100px"
   });
-  return <section className="py-24 md:py-32 px-6">
+  return <section className="py-20 md:py-28 px-6">
       <motion.div ref={headerRef} className="max-w-3xl mx-auto text-center mb-16 md:mb-20" initial={{
       opacity: 0,
       y: 30

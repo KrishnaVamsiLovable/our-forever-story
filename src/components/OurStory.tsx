@@ -9,14 +9,9 @@ const OurStory = () => {
   });
 
   const firstParagraphRef = useRef(null);
-  const secondParagraphRef = useRef(null);
   const thirdParagraphRef = useRef(null);
 
   const isFirstParagraphInView = useInView(firstParagraphRef, {
-    once: true,
-    margin: "-50px"
-  });
-  const isSecondParagraphInView = useInView(secondParagraphRef, {
     once: true,
     margin: "-50px"
   });
@@ -24,7 +19,7 @@ const OurStory = () => {
     once: true,
     margin: "-50px"
   });
-  return <section className="py-24 md:py-32 px-6 bg-champagne/50">
+  return <section className="py-20 md:py-28 px-6 bg-champagne/50">
       <motion.div ref={headerRef} className="max-w-3xl mx-auto text-center" initial={{
       opacity: 0,
       y: 50
@@ -48,16 +43,7 @@ const OurStory = () => {
             animate={isFirstParagraphInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            Our story began the way the most beautiful ones often do, unexpectedly. An impromptu trip, a spontaneous choice, a moment neither of us planned, yet one that changed everything. We didn’t know then that it would lead us to the love of our lives, but fate had already begun writing our story.
-          </motion.p>
-          
-          <motion.p
-            ref={secondParagraphRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isSecondParagraphInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            What followed became the most beautiful chapter we’ve ever known, filled with shared laughter, quiet moments, and dreams spoken out loud. We found ourselves wanting to be together in every moment, and somewhere along the way, we realized this was exactly how we wanted to walk through life.
+            Our story began the way the most beautiful ones often do, unexpectedly. An impromptu trip, a spontaneous choice, a moment neither of us planned, yet one that changed everything. We didn’t know then that it would lead us to the love of our lives, but fate had already begun writing our story. We found ourselves wanting to be together in every moment, and somewhere along the way, we realized this was exactly how we wanted to walk through life.
           </motion.p>
           
           <motion.p

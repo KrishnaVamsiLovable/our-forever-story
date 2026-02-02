@@ -19,13 +19,13 @@ const questions = [
     funReveal: "Plot twist! Guess who fell first 😅❤️"
   },
   {
-    question: "Who sends longer texts?",
+    question: "Who sends long dramatic essays in texts?",
     options: ["Krishna", "Leela"],
     answer: "Krishna",
     funReveal: "Paragraphs. With context. Always 📱✨"
   },
   {
-    question: "Who plans everything?",
+    question: "Who makes the lists, the plans, and the backup plans?",
     options: ["Krishna", "Leela"],
     answer: "Leela",
     funReveal: "Because someone has to keep things together 📋👀"
@@ -33,7 +33,7 @@ const questions = [
   {
     question: "Who is more likely to cry at the wedding?",
     options: ["Leela", "Krishna"],
-    answer: "Both",
+    answer: "both!",
     funReveal: "Tissues ready for everyone! 😭💕"
   }
 ];
@@ -46,10 +46,10 @@ const GuessingGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameComplete, setGameComplete] = useState(false);
 
   const currentQuestion = questions[currentIndex];
   const isCorrect = selectedAnswer === currentQuestion?.answer;
+  const isLastQuestion = currentIndex === questions.length - 1;
 
   const handleGuess = (option: string) => {
     setSelectedAnswer(option);
@@ -64,8 +64,6 @@ const GuessingGame = () => {
       setCurrentIndex(prev => prev + 1);
       setSelectedAnswer(null);
       setRevealed(false);
-    } else {
-      setGameComplete(true);
     }
   };
 
@@ -74,11 +72,10 @@ const GuessingGame = () => {
     setSelectedAnswer(null);
     setRevealed(false);
     setScore(0);
-    setGameComplete(false);
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-champagne/30">
+    <section className="py-20 md:py-28 px-6 bg-champagne/30">
       <motion.div
         ref={headerRef}
         className="max-w-3xl mx-auto text-center mb-16 md:mb-20"
@@ -102,15 +99,13 @@ const GuessingGame = () => {
       </motion.div>
 
       <div className="max-w-2xl mx-auto">
-        <AnimatePresence mode="wait">
-          {!gameComplete ? (
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.4 }}
-            >
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.4 }}
+        >
               {/* Progress indicator */}
               <div className="flex items-center justify-center gap-2 mb-8">
                 {questions.map((_, idx) => (
@@ -173,7 +168,9 @@ const GuessingGame = () => {
                       >
                         <div
                           className={`flex items-center gap-4 p-6 rounded-xl ${
-                            isCorrect
+                            isLastQuestion
+                              ? "bg-gold-soft/50 border border-gold/30"
+                              : isCorrect
                               ? "bg-sage-light/50 border border-sage/30"
                               : "bg-rose-soft/50 border border-rose/30"
                           }`}
@@ -185,13 +182,17 @@ const GuessingGame = () => {
                           >
                             <Heart
                               className={`w-8 h-8 ${
-                                isCorrect ? "text-sage fill-sage" : "text-rose fill-rose"
+                                isLastQuestion
+                                  ? "text-gold fill-gold"
+                                  : isCorrect
+                                  ? "text-sage fill-sage"
+                                  : "text-rose fill-rose"
                               }`}
                             />
                           </motion.div>
                           <div>
                             <p className="font-medium text-lg">
-                              {isCorrect ? "You got it! 🎉" : `Oops! It's ${currentQuestion.answer}`}
+                              {isCorrect ? "You got it! 🎉" : `${isLastQuestion ? "" : "Oops! "}It's ${currentQuestion.answer}`}
                             </p>
                             <p className="text-muted-foreground font-script text-xl italic">
                               {currentQuestion.funReveal}
@@ -199,70 +200,44 @@ const GuessingGame = () => {
                           </div>
                         </div>
 
-                        <div className="flex justify-center">
-                          <Button
-                            className="px-8 py-6 text-lg gap-2"
-                            onClick={handleNext}
+                        {isLastQuestion ? (
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="space-y-6"
                           >
-                            {currentIndex < questions.length - 1 ? (
-                              <>
-                                Next Question
-                                <ChevronRight className="w-5 h-5" />
-                              </>
-                            ) : (
-                              "See Results"
-                            )}
-                          </Button>
-                        </div>
+                            <div className="text-center">
+                              <p className="text-muted-foreground font-script text-2xl italic mb-6">
+                                "Time to get to know us better at the wedding! 💒"
+                              </p>
+                              <Button
+                                variant="outline"
+                                className="gap-2 px-6 py-5 text-lg"
+                                onClick={handleRestart}
+                              >
+                                <RotateCcw className="w-5 h-5" />
+                                Play Again
+                              </Button>
+                            </div>
+                          </motion.div>
+                        ) : (
+                          <div className="flex justify-center">
+                            <Button
+                              className="px-8 py-6 text-lg gap-2"
+                              onClick={handleNext}
+                            >
+                              Next Question
+                              <ChevronRight className="w-5 h-5" />
+                            </Button>
+                          </div>
+                        )}
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </CardContent>
               </Card>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="complete"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="overflow-hidden border-gold/30 bg-gradient-to-br from-background to-gold-soft/30 shadow-romantic">
-                <CardContent className="p-10 md:p-12 text-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring", bounce: 0.5 }}
-                    className="w-20 h-20 rounded-full bg-gold-soft mx-auto mb-6 flex items-center justify-center"
-                  >
-                    <Heart className="w-10 h-10 text-gold fill-gold" />
-                  </motion.div>
-
-                  <h3 className="font-serif text-3xl md:text-4xl mb-4">
-                    You scored {score} out of {questions.length}!
-                  </h3>
-
-                  <p className="text-muted-foreground font-script text-2xl italic mb-8">
-                    {score === questions.length
-                      ? "Perfect! You know us so well! 💕"
-                      : score >= questions.length / 2
-                      ? "Great job! You're definitely invited! 🎉"
-                      : "Time to get to know us better at the wedding! 💒"}
-                  </p>
-
-                  <Button
-                    variant="outline"
-                    className="gap-2 px-6 py-5 text-lg"
-                    onClick={handleRestart}
-                  >
-                    <RotateCcw className="w-5 h-5" />
-                    Play Again
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

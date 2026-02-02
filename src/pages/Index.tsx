@@ -4,17 +4,20 @@ import EventSchedule from "@/components/EventSchedule";
 import GuessingGame from "@/components/GuessingGame";
 import RSVPSection from "@/components/RSVPSection";
 import Footer from "@/components/Footer";
+import IntroOverlay from "@/components/IntroOverlay";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
-      <HeroSection />
-      <OurStory />
-      <EventSchedule />
-      <GuessingGame />
-      <RSVPSection />
-      <Footer />
-    </main>
+    <IntroOverlay>
+      <main className="min-h-screen bg-background">
+        <HeroSection />
+        <OurStory />
+        <EventSchedule />
+        <GuessingGame />
+        <RSVPSection />
+        <Footer />
+      </main>
+    </IntroOverlay>
   );
 };
 

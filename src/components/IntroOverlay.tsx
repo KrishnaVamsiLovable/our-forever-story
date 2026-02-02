@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import envelopeAnimation from "@/assets/envelope-animation.mp4";
+// Static poster image shown before the video starts playing.
+// Add this file under `src/assets` (for example, a screenshot of the first frame).
+import envelopePoster from "@/assets/envelope-poster.jpg";
 
 interface IntroOverlayProps {
   children: React.ReactNode;
@@ -135,8 +138,11 @@ const IntroOverlay = ({ children }: IntroOverlayProps) => {
             <video
               ref={videoRef}
               src={envelopeAnimation}
+              poster={envelopePoster}
+              preload="auto"
               className="h-full w-full object-contain"
               playsInline
+              muted
               controls={false}
             />
 

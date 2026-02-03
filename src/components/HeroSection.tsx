@@ -62,7 +62,7 @@ const HeroSection = () => {
         opacity: 1
       }} transition={{
         duration: 1,
-        delay: 1
+        delay: 0.8
       }}>A quiet promise</motion.p>
       <motion.p className="font-script text-2xl md:text-3xl text-muted-foreground mb-4" initial={{
         opacity: 0
@@ -70,7 +70,7 @@ const HeroSection = () => {
         opacity: 1
       }} transition={{
         duration: 1,
-        delay: 1
+        delay: 1.2
       }}>To choose each other, always</motion.p>
         
         {/* <motion.p className="text-muted-foreground text-lg tracking-wide" initial={{

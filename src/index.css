@@ -124,6 +124,11 @@
     @apply border-border;
   }
 
+  html {
+    /* Reserve space for scrollbar so toggling overlay overflow doesn't cause resize. */
+    scrollbar-gutter: stable;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Montserrat', sans-serif;

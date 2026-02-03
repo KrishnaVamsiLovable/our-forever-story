@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import couple1 from "@/assets/couple-1.jpg";
 import couple2 from "@/assets/couple-2.jpg";
-import couple3 from "@/assets/couple-3.jpg";
-import couple4 from "@/assets/couple-4.jpeg";
 import couple5 from "@/assets/couple-5.jpeg";
 import couple6 from "@/assets/couple-6.jpeg";
 
@@ -11,15 +9,15 @@ const images = [couple1, couple2, couple6, couple5, couple1];
 const getOpacity = (index: number) => {
   switch (index) {
     case 0:
-      return [0.4, 0.8, 0.8, 0, 0, 0, 0, 0, 0, 0];
+      return [0.3, 0.65, 0.65, 0, 0, 0, 0, 0, 0, 0];
     case 1:
-      return [0, 0, 0, 0.8, 0.8, 0, 0, 0, 0, 0];
+      return [0, 0, 0, 0.65, 0.65, 0, 0, 0, 0, 0];
     case 2:
-      return [0, 0, 0, 0, 0, 0.8, 0.8, 0, 0, 0];
+      return [0, 0, 0, 0, 0, 0.65, 0.65, 0, 0, 0];
     case 3:
-      return [0, 0, 0, 0, 0, 0, 0, 0.8, 0.8, 0];
+      return [0, 0, 0, 0, 0, 0, 0, 0.65, 0.65, 0];
     case 4:
-      return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.4];
+      return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
     default:
       return [];
   }

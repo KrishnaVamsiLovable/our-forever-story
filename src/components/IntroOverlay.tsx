@@ -6,13 +6,15 @@ import envelopePoster from "@/assets/envelope-poster.jpg";
 
 interface IntroOverlayProps {
   children: React.ReactNode;
+  /** Called when the overlay starts fading out so content can mount and run entrance animations. */
+  onFadeStart?: () => void;
 }
 
-const INTRO_AUTO_PLAY_DELAY_MS = 5000;
+const INTRO_AUTO_PLAY_DELAY_MS = 10000;
 const INTRO_FADE_OUT_DELAY_MS = 3500;
 const INTRO_FADE_DURATION_MS = 2500;
 
-const IntroOverlay = ({ children }: IntroOverlayProps) => {
+const IntroOverlay = ({ children, onFadeStart }: IntroOverlayProps) => {
   const [hasStarted, setHasStarted] = useState(false);
   const [showIntroText, setShowIntroText] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
@@ -45,6 +47,7 @@ const IntroOverlay = ({ children }: IntroOverlayProps) => {
 
     fadeOutTimeoutRef.current = window.setTimeout(() => {
       setIsFadingOut(true);
+      onFadeStart?.();
 
       hideTimeoutRef.current = window.setTimeout(() => {
         setIsVisible(false);
@@ -147,19 +150,25 @@ const IntroOverlay = ({ children }: IntroOverlayProps) => {
             />
 
             <div
-              className={`pointer-events-none absolute inset-x-0 top-6 text-center text-sm font-medium uppercase tracking-[0.2em] drop-shadow-sm transition-opacity ${
+              className={`pointer-events-none absolute inset-x-0 top-16 px-8 text-center font-script text-xl font-normal tracking-[0.12em] transition-opacity sm:top-10 sm:px-10 sm:text-2xl ${
                 showIntroText ? "opacity-100" : "opacity-0"
               }`}
-              style={{ color: "hsl(var(--sage))", transition: "opacity 2000ms ease-out" }}
+              style={{
+                color: "hsl(var(--sage))",
+                transition: "opacity 2000ms ease-out",
+                textShadow: "0 1px 2px hsl(var(--foreground) / 0.06)",
+              }}
             >
-              Inviting you to our special event
+              A new chapter begins...
             </div>
 
             <div
-              className={`pointer-events-none absolute inset-x-0 bottom-6 text-center text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground drop-shadow-sm transition-opacity ${
+              className={`pointer-events-none absolute inset-x-0 bottom-6 text-center text-xs font-normal uppercase tracking-[0.1em] text-muted-foreground drop-shadow-sm transition-opacity ${
                 showIntroText ? "opacity-100" : "opacity-0"
               }`}
-              style={{ transition: "opacity 2000ms ease-out" }}
+              style={{
+                transition: "opacity 2000ms ease-out",
+              }}
             >
               Tap to open
             </div>

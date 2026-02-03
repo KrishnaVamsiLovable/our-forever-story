@@ -8,15 +8,15 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 1,
-        delay: 0.3
-      }}>
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 1,
+          delay: 0.3
+        }}>
           <span className="font-script text-xl md:text-2xl text-muted-foreground tracking-wide">
             We're getting married
           </span>
@@ -63,16 +63,24 @@ const HeroSection = () => {
       }} transition={{
         duration: 1,
         delay: 1
-      }}>March 29, 2026</motion.p>
+      }}>A quiet promise</motion.p>
+      <motion.p className="font-script text-2xl md:text-3xl text-muted-foreground mb-4" initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} transition={{
+        duration: 1,
+        delay: 1
+      }}>To choose each other, always</motion.p>
         
-        <motion.p className="text-muted-foreground text-lg tracking-wide" initial={{
+        {/* <motion.p className="text-muted-foreground text-lg tracking-wide" initial={{
         opacity: 0
       }} animate={{
         opacity: 1
       }} transition={{
         duration: 1,
         delay: 1.2
-      }}>Sai Priya Beach Resort • Rushikonda, Vizag</motion.p>
+      }}>Every single day</motion.p> */}
       </div>
       
       {/* Scroll indicator */}

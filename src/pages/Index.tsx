@@ -26,7 +26,7 @@ const Index = () => {
   return (
     <IntroOverlay onFadeStart={handleFadeStart}>
       {showContent && (
-        <main className="min-h-screen bg-background">
+        <main className="min-h-screen overflow-x-hidden bg-background">
           <HeroSection />
           <OurStory />
           <EventSchedule />

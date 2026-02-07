@@ -75,10 +75,14 @@ const GuessingGame = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 px-6 bg-cover bg-center bg-no-repeat bg-champagne/20" style={{ backgroundImage: "url('/decorative-bg.jpeg')" }}>
+    <section className="relative py-20 md:py-28 px-6 bg-cover bg-center bg-no-repeat bg-champagne/20" style={{ backgroundImage: "url('/decorative-bg.png')" }}>
+      <div
+        className="absolute inset-x-0 top-0 h-32 md:h-48 bg-no-repeat bg-[length:100%_auto] bg-top pointer-events-none z-[1]"
+        style={{ backgroundImage: "url('/border-bottom.png')" }}
+      />
       <motion.div
         ref={headerRef}
-        className="max-w-3xl mx-auto text-center mb-16 md:mb-20"
+        className="relative z-10 max-w-3xl mx-auto text-center mb-16 md:mb-20"
         initial={{ opacity: 0, y: 30 }}
         animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}

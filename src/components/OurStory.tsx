@@ -19,7 +19,7 @@ const OurStory = () => {
     once: true,
     margin: "-50px"
   });
-  return <section className="py-20 md:py-28 px-6 bg-champagne/50">
+  return <section className="py-20 md:py-28 px-6 bg-cover bg-center bg-no-repeat bg-champagne/30" style={{ backgroundImage: "url('/decorative-bg.jpeg')" }}>
       <motion.div ref={headerRef} className="max-w-3xl mx-auto text-center" initial={{
       opacity: 0,
       y: 50

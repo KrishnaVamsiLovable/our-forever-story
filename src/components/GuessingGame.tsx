@@ -75,7 +75,7 @@ const GuessingGame = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 px-6 bg-champagne/30">
+    <section className="py-20 md:py-28 px-6 bg-cover bg-center bg-no-repeat bg-champagne/20" style={{ backgroundImage: "url('/decorative-bg.jpeg')" }}>
       <motion.div
         ref={headerRef}
         className="max-w-3xl mx-auto text-center mb-16 md:mb-20"

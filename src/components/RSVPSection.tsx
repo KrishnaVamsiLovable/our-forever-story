@@ -100,7 +100,7 @@ const RSVPSection = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 px-6 bg-sage-light/20">
+    <section className="py-20 md:py-28 px-6 bg-cover bg-center bg-no-repeat bg-sage-light/10" style={{ backgroundImage: "url('/decorative-bg.jpeg')" }}>
       <motion.div
         ref={headerRef}
         className="max-w-3xl mx-auto text-center mb-12 md:mb-16"

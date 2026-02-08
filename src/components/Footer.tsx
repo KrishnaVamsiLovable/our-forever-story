@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 const Footer = () => {
-  return <footer className="py-16 px-6 bg-cover bg-center bg-no-repeat bg-champagne/30 text-center" style={{ backgroundImage: "url('/decorative-bg.jpeg')" }}>
+  return <footer className="py-16 px-6 bg-champagne/50 text-center">
       <motion.div initial={{
       opacity: 0
     }} whileInView={{
